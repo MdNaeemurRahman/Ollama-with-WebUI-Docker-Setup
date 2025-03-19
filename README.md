@@ -67,7 +67,7 @@ If you are running the GPU-supported version, follow these steps to ensure GPU a
 Run the following command to verify if your container has GPU access:
 
 ```bash
-docker inspect mnrahm-ollama-1 | grep -i "capabilities"
+docker inspect *name_of_the_container* | grep -i "capabilities"
 ```
 If you see:
 
