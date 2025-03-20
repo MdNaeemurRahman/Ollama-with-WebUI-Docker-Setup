@@ -34,11 +34,17 @@ Before starting, ensure you have Docker and Docker Compose installed on your sys
 
 
 - `docker-compose.yml`: Runs Ollama and Open-WebUI **without GPU support**.
-- `docker-compose.yml-gpu`: Runs Ollama and Open-WebUI **with GPU support**.
+- `docker-compose-gpu.yml`: Runs Ollama and Open-WebUI **with GPU support**.
 
 ### Start the Containers
 
 Depending on your Docker installation, you might use either of the following commands:
+
+#### _Note: Some versions of Docker require docker-compose up, while others use docker compose up._
+
+- docker-compose (with a hyphen) is used in legacy Docker versions (before v2).
+- docker compose (without a hyphen) is used in Docker versions 2.x and above.
+- Run `docker --version` to check your version. If you're using Docker v2+, use docker compose.
 
 ```bash
 docker-compose up -d
@@ -48,11 +54,15 @@ or
 ```bash
 docker compose up -d
 ```
-#### _Note: Some versions of Docker require docker-compose up, while others use docker compose up._
 
-- docker-compose (with a hyphen) is used in legacy Docker versions (before v2).
-- docker compose (without a hyphen) is used in Docker versions 2.x and above.
-- Run `docker --version` to check your version. If you're using Docker v2+, use docker compose.
+_Note: If you use a custom filename (like docker-compose-gpu.yml), you must explicitly specify it using the -f flag when starting the containers:_
+
+```bash
+docker compose -f docker-compose-gpu.yml up -d
+docker-compose -f docker-compose-gpu.yml up -d
+```
+
+
 
 #### Once running, Open-WebUI will be accessible at:
 
